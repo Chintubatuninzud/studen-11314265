@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: djangoheart
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn djangoheart.wsgi:application"
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        value: YOUR_SECRET_KEY
